@@ -1,0 +1,274 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.mat-expansion-panel {
+  margin: 15px!important;
+}
+.order-line-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.submit-btn {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  height: 50px;
+  font-size: 16px;
+}
+
+.order-header {
+  background-color: #c5cae9;
+  color: #3f51b5;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 8px 8px 0 0;
+  gap: 10px;
+}
+
+mat-card-content {
+  display: contents;
+}
+
+.order-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.order-header .mat-card-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.btn-group-wrapper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.add-schedule-btn {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 36px;
+  background-color: #c5cae9;
+  color: #3f51b5;
+  white-space: nowrap;
+}
+
+.response-toggle {
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
+.mat-button-toggle-checked {
+  background-color: #c5cae9;
+  color: #3f51b5;
+}
+
+mat-card-content {
+  padding: 20px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+  height: 100%;
+}
+
+.l-section {
+  flex: 1;
+  min-width: 280px;
+  border-right: 1px solid #f2f2f2;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.r-section {
+  flex: 2;
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.s-card {
+  border: 1px solid #f2f2f2;
+  min-width: 250px;
+  flex: 1;
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  border-radius: 10px;
+  min-height: 250px;
+  height: auto;
+}
+
+.s-card-title {
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.app-warning-banner-container {
+  margin: 30px 10px 10px 0;
+  width: 100%;
+}
+
+mat-expansion-panel {
+  margin-top: 20px;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+}
+
+mat-panel-title {
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+.expansion-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  justify-content: space-between;
+}
+
+.expansion-content>div {
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 1024px) {
+
+  .order-line-card,
+  .submit-btn {
+    margin: 20px auto;
+  }
+
+  .l-section {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 15px 10px;
+  }
+
+  .r-section {
+    margin: 0;
+    justify-content: center;
+  }
+
+  .s-card {
+    width: calc(50% - 10px);
+    max-width: 350px;
+  }
+
+  .btn-group-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .add-schedule-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .response-toggle {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .response-toggle mat-button-toggle {
+    flex: 1;
+  }
+
+  .expansion-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-header-title {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-group-wrapper {
+    align-items: center;
+  }
+
+  .s-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .order-line-card,
+  .submit-btn {
+    margin: 15px auto;
+    padding: 10px;
+  }
+
+  .order-header .mat-card-title {
+    font-size: 16px;
+  }
+
+  mat-card-content {
+    padding: 10px;
+  }
+
+  .l-section,
+  .r-section {
+    padding: 10px;
+  }
+
+  .add-schedule-btn,
+  .response-toggle {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .order-header .mat-card-title {
+    font-size: 14px;
+  }
+
+  .s-card {
+    padding: 15px 5px;
+  }
+}

@@ -1,0 +1,143 @@
+<div class="container">
+  <mat-card class="order-line-card">
+    <div class="order-header">
+
+      <div class="order-header-title">
+        <mat-card-title>
+          <span class="line-id">Line 0010:</span> NaCl (Sodium Chloride)
+        </mat-card-title>
+        <mat-icon>assignment</mat-icon>
+        <mat-icon>attach_file</mat-icon>
+      </div>
+      <div class="btn-group-wrapper">
+        <button
+          mat-stroked-button
+          color="primary"
+          class="add-schedule-btn mat-elevation-z4">
+          + ADD SCHEDULE
+        </button>
+
+        <mat-button-toggle-group
+          outlined-outline-color
+          [(ngModel)]="responseType"
+          class="response-toggle mat-elevation-z4"
+          name="response">
+          <mat-button-toggle value="accept">ACCEPT</mat-button-toggle>
+          <mat-button-toggle value="reject">REJECT</mat-button-toggle>
+          <mat-button-toggle value="change">CHANGE</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+    </div>
+
+    <mat-card-content>
+      <div>
+        <form #orderForm="ngForm">
+          <div class="section">
+            <div class="l-section">
+              <strong>Description:</strong> Table Salt, 100KG Tanks
+              <p><strong>Ship To:</strong> Amsterdam<br />1234 Tulip
+                Lane<br />Ludwigshafen DE 12346</p>
+              <p><strong>Supplier Product ID:</strong> 12341723661</p>
+              <p><strong>UPC Number:</strong> 121238723001</p>
+              <p><strong>Contract Number:</strong> 23081090910</p>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Sales Order Number</mat-label>
+                <input type="number" matInput name="salesOrderNumber"
+                  [(ngModel)]="salesOrderNumber" />
+
+              </mat-form-field>
+            </div>
+
+            <div>
+              <div class="r-section">
+                <div class="s-card">
+                  <strong class="s-card-title">Quantity</strong>
+                  <p><strong>Ordered:</strong><br /> 21,000 KGM</p>
+                  <p><strong>Confirmed:</strong><br /> 21,000 KGM</p>
+                </div>
+
+                <div class="s-card">
+                  <strong class="s-card-title">Expected Arrival Date</strong>
+                  <p><strong>Requested:</strong><br> 06-28-2018</p>
+                  <p><strong>Confirmed:</strong><br> 06-28-2018</p>
+                  <mat-form-field appearance="fill" class="date-field">
+                    <mat-label>Expected Ship Date</mat-label>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      name="expectedShipDate"
+                      required
+                      [(ngModel)]="expectedShipDate"
+                      #shipDate="ngModel"
+                      (input)="onDateInput($event, shipDate)" />
+
+                    <mat-datepicker-toggle matSuffix
+                      [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+
+                    <mat-error
+                      *ngIf="(shipDate.errors?.['required'] || shipDate.errors?.['invalidDate'] || shipDate.errors?.['minDate']) && (shipDate.dirty || shipDate.touched || orderForm.submitted)">
+                      {{ shipDate.errors?.['required'] ? 'Required' :
+                      shipDate.errors?.['invalidDate'] ? 'Invalid date' :
+                      'Date must be on or after 06-28-2018' }}
+                    </mat-error>
+
+                  </mat-form-field>
+
+                </div>
+
+                <div class="s-card">
+                  <strong class="s-card-title">Price</strong>
+                  <p><strong>Requested:</strong><br> 80 USD / 2 KGM</p>
+                  <p><strong>Confirmed:</strong><br> 80 USD / 2 KGM</p>
+                </div>
+              </div>
+              <div class="app-warning-banner-container">
+                <app-warning-banner
+                  [responseType]="responseType"></app-warning-banner>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <mat-expansion-panel class="mat-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Additional Details</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-content">
+          <div>
+            <strong>Product Grade Description</strong>
+            <p>Corax N 339</p>
+            <p>
+              specification: 0123456789
+            </p>
+            <p>Issue: 003</p>
+            <p>Producer: Orion Engineer</p>
+
+          </div>
+          <div>
+            <p><strong>Transport Method:</strong> Road</p>
+            <p><strong>Inco Term (Location):</strong> CPT<br>
+              (WeiBandt-Golzau)
+            </p>
+            <p><strong>Unloading Point:</strong> Amsterdam</p>
+          </div>
+          <div>
+            <p><strong>Ship To Contact:</strong> Alan Dowl</p>
+            <p>Phone: (770) 444-4444
+            </p>
+            <p>Fax: (770) 444-4444
+            </p>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-card-content>
+  </mat-card>
+
+  <button mat-raised-button class="submit-btn" color="primary" type="submit"
+    (click)="submit(orderForm)">
+    SUBMIT CONFIRMATION
+  </button>
+</div>
